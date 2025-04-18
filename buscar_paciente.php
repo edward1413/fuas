@@ -1,11 +1,9 @@
 <?php
-
 include 'conexion.php'; // Conexión a la base de datos
 
 $nombre_paciente = isset($_GET['nombre_paciente']) ? trim($_GET['nombre_paciente']) : '';
 
 if (!empty($nombre_paciente)) {
-
     // Separar términos por espacios
     $nombresArray = explode(' ', $nombre_paciente);
 
@@ -17,7 +15,7 @@ if (!empty($nombre_paciente)) {
 
     $query = "SELECT numero_documento_paciente, nombres_paciente, apellido_paterno_paciente, apellido_materno_paciente, fecha_nacimiento_paciente, genero_paciente 
             FROM maestro_paciente 
-            WHERE " . implode(' AND ', $conditions);
+            WHERE " . implode(' AND ', $conditions) . " LIMIT 10";
 
     // Preparar y vincular parámetros
     if ($stmt = $conexion->prepare($query)) {
@@ -35,23 +33,22 @@ if (!empty($nombre_paciente)) {
 
         if ($resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
-                echo '<div class="form_resultado_paciente" data-id="' . htmlspecialchars($fila['numero_documento_paciente']) . '">' .
-                    htmlspecialchars($fila['numero_documento_paciente']) . ' - ' .
-                    htmlspecialchars($fila['nombres_paciente']) . ' ' .
-                    htmlspecialchars($fila['apellido_paterno_paciente']) . ' ' .
-                    htmlspecialchars($fila['apellido_materno_paciente']) .
+                echo '<div class="search-item" data-id="' . htmlspecialchars($fila['numero_documento_paciente']) . '">' .
+                    '<div class="fw-bold">' . htmlspecialchars($fila['nombres_paciente'] . ' ' . 
+                    htmlspecialchars($fila['apellido_paterno_paciente']) . ' ' . 
+                    htmlspecialchars($fila['apellido_materno_paciente'])) . '</div>' .
+                    '<div class="small">DNI: ' . htmlspecialchars($fila['numero_documento_paciente']) . '</div>' .
                     '</div>';
             }
         } else {
-            echo '<div class="alert alert-warning">No se encontraron resultados. Intenta nuevamente.</div>';
+            echo '<div class="search-item text-muted">No se encontraron resultados</div>';
         }
 
         $stmt->close();
     } else {
-        echo '<div class="alert alert-danger">Error al preparar la consulta: ' . $conexion->error . '</div>';
+        echo '<div class="search-item text-danger">Error en la búsqueda</div>';
     }
-
 } else {
-    echo '<div class="alert alert-info">Por favor, ingresa un nombre para buscar.</div>';
+    echo '<div class="search-item text-info">Ingrese un nombre para buscar</div>';
 }
 ?>

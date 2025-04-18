@@ -2,40 +2,44 @@ $(document).ready(function () {
     let debounceTimer;
 
     // ==============================
-    // BUSCAR PACIENTE
+    // BUSCAR PACIENTE (Actualizado para Bootstrap 5)
     // ==============================
     $('#nombre_paciente').on('input', function () {
         clearTimeout(debounceTimer);
         const nombre = $(this).val();
 
-        if (nombre.length > 0) {
+        if (nombre.length >= 2) {
             debounceTimer = setTimeout(() => {
                 $.ajax({
                     url: 'buscar_paciente.php',
                     type: 'GET',
                     data: { nombre_paciente: nombre },
                     success: function (data) {
-                        $('#resultados_paciente').html(data);
+                        const resultados = $('#resultados_paciente');
+                        resultados.html(data);
+                        resultados.removeClass('d-none'); // Mostrar resultados (Bootstrap 5)
                     },
                     error: function (xhr, status, error) {
                         console.error('Error en la búsqueda:', error);
-                        $('#resultados_paciente').html('<div class="alert alert-danger">Error al buscar paciente</div>');
+                        $('#resultados_paciente').html(
+                            '<div class="search-item text-danger">Error al buscar paciente</div>'
+                        ).removeClass('d-none');
                     }
                 });
             }, 400);
         } else {
-            $('#resultados_paciente').empty();
-            $('#form_paciente').hide();
+            $('#resultados_paciente').addClass('d-none').empty();
+            $('#form_paciente').addClass('d-none');
         }
     });
 
     // ==============================
-    // CLIC EN RESULTADO PACIENTE (solo uno)
+    // CLIC EN RESULTADO PACIENTE (Actualizado)
     // ==============================
-    $(document).on('click', '.form_resultado_paciente', function () {
+    $(document).on('click', '#resultados_paciente .search-item', function () { // Cambiado a .search-item
         const idPaciente = $(this).data('id');
         $('#nombre_paciente').val('');
-        $('#resultados_paciente').empty();
+        $('#resultados_paciente').addClass('d-none').empty();
 
         $.ajax({
             url: 'obtener_datos_paciente.php',
@@ -43,10 +47,6 @@ $(document).ready(function () {
             dataType: 'json',
             data: { id: idPaciente },
             success: function (paciente) {
-                if (paciente.error) {
-                    alert('No se encontraron datos para este usuario.');
-                    return;
-                }
 
                 // Rellenar campos
                 $('#id_tipo_documento_paciente').val(paciente.id_tipo_documento_paciente);
@@ -57,12 +57,11 @@ $(document).ready(function () {
                 $('#fecha_nacimiento').val(paciente.fecha_nacimiento_paciente || '');
                 $('#genero-paciente').val(paciente.genero_paciente || '');
 
-                // Mostrar marca de género con X
+                // Mostrar marca de género con X (ajusta según tu diseño)
                 const genero = paciente.genero_paciente;
                 const marcaGenero = $('#genero-paciente-marca');
 
-                marcaGenero.text(''); // Limpia marca anterior
-                marcaGenero.css({ top: '', left: '', position: 'absolute' });
+                marcaGenero.text('').removeAttr('style'); // Limpia marca anterior
 
                 if (genero === 'M') {
                     marcaGenero.text('XM').css({ top: '14cm', left: '4cm' });
@@ -76,7 +75,7 @@ $(document).ready(function () {
                     $('#edad_paciente').val(edad);
                 }
 
-                $('#form_paciente').show();
+                $('#form_paciente').removeClass('d-none'); // Mostrar formulario (Bootstrap 5)
             },
             error: function (xhr, status, error) {
                 console.error('Error al obtener detalles del paciente:', error);
@@ -85,7 +84,14 @@ $(document).ready(function () {
         });
     });
 
-    // Función para calcular edad
+    // Cerrar resultados al hacer clic fuera (Nueva funcionalidad)
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('#nombre_paciente, #resultados_paciente').length) {
+            $('#resultados_paciente').addClass('d-none');
+        }
+    });
+
+    // Función para calcular edad (sin cambios)
     function calcularEdad(fechaNacimiento) {
         const nacimiento = new Date(fechaNacimiento);
         const hoy = new Date();

@@ -1,230 +1,118 @@
-/* General */
 body {
-    background-color: #15253a !important; /* Fondo oscuro personalizado con !important */
-    color: #fff; /* Texto blanco para contrastar */
-    font-family: 'Arial', sans-serif;
-}
-
-h1, h2 {
-    color: #f5f5f5; /* Color blanco suave para los encabezados */
-    margin-bottom: 20px;
-}
-
-.form-check-label{
-    font-size: 0.9rem;
-}
-
-.form-control:disabled, .form-control[readonly] {
     background-color: #15253a;
+    color: #fff;
+}
+
+.container-fluid{
+    width: 70%;
+}
+.card-dark {
+    background-color: #0f151c;
+    border: 1px solid #2a3a4d;
+}
+
+.form-control,
+.form-control:focus {
+    background-color: #0f151c;
+    color: #fff;
+    border-color: #2a3a4d;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: #0f151c;
     opacity: 1;
 }
 
-/* Input y Controles */
-input.form-control, input.p-inputtext, input.codigo-prestacion, input.descripcion-prestacion {
-    background-color: #0f151c; /* Fondo oscuro para inputs */
-    color: #fff; /* Texto blanco en los inputs */
-    font-size: 0.9rem;
-    border: 1px solid #105169; /* Bordes de los inputs en gris oscuro */
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-}
-
-input.form-control:focus, input.p-inputtext:focus, input.codigo-prestacion:focus, input.descripcion-prestacion:focus {
-    border-color: #105169; /* Color del borde al enfocar */
-    background-color: #0f151c; /* Fondo más claro al enfocar */
-    color: #e6e6e6;
-    outline: none;
-}
-
-/* Botones */
-button.btn {
-    background-color: #28a745; /* Color verde para el botón */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button.btn:hover {
-    background-color: #218838; /* Color más oscuro al pasar el ratón */
-}
-
-button.btn .icono-impresora {
-    margin-right: 10px;
-}
-
-/* Estructura del contenedor */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Diseño de las columnas */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* Columnas específicas */
-.col-md-6 {
-    flex: 1;
-    min-width: 280px;
-}
-
-.col-md-4 {
-    flex: 1;
-    min-width: 280px;
-}
-
-.mb-4, .my-4 {
-    margin-bottom: 0.5rem !important;
-}
-
-/* Estilos personalizados para los anchos */
-.custom-col-30 {
-    flex: 0 0 31%; /* Ancho fijo del 30% */
-    max-width: 31%;
-}
-
-.custom-col-70 {
-    flex: 0 0 65%; /* Ancho fijo del 70% */
-    max-width: 65%;
-}
-
-/* Sección de resultados */
-.resultados-container {
-    border: 1px solid #105169;
-    background: #0f151c;
-    padding: 8px;
-    border-radius: 6px;
-    max-height: 180px;
+.search-results {
+    max-height: 200px;
     overflow-y: auto;
-    font-size: 13px;
+    border: 1px solid #2a3a4d;
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
 }
 
-.form_resultado_personal,
-.form_resultado_paciente {
-    padding: 6px 10px;
-    border: 1px solid #105169;
-    background: #0f151c;
-    margin-bottom: 5px;
-    border-radius: 5px;
+.search-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #2a3a4d;
     cursor: pointer;
-    transition: background-color 0.2s;
-    color: #e0e0e0;
 }
 
-.resultado-busqueda-titulos {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.search-item:hover {
+    background-color: #1a2a3a;
 }
 
-.resultado-busqueda-titulos span,
-.resultado-personal input {
-    font-size: 14px;
+.search-item:last-child {
+    border-bottom: none;
 }
 
-.resultado-personal input {
-    background-color: #0f151c;
-    border: 1px solid #105169;
-    color: #fff;
-    font-size: 14px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
+.btn-print {
+    background-color: #28a745;
+    padding: 0.5rem 1.5rem;
 }
 
-.resultado-busqueda-titulos-1 {
-    display: flex;
-    justify-content: space-between;
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #f5f5f5;
 }
 
-.titulo-dni, .titulo-nombres, .titulo-profesion, .titulo-colegiatura, .titulo-especialidad {
-    font-weight: bold;
-    color: #fff;
+.compact-form .row {
+    margin-bottom: 0.5rem;
 }
 
-.small-text {
-    font-size: 14px;
+.compact-form label {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
 }
 
-/* Sección de lugar de atención */
-.justificar {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-check-inline {
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-}
-
-.form-check-input {
-    margin-right: 5px;
+.form-label {
+    color: white;
 }
 
 .form-check-label {
-    color: #fff;
+    color: white;
 }
 
-/* Sección de tipo de atención */
-.prestacion-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.small {
+    color: white;
 }
 
-.prestacion-container input {
-    background-color: #0f151c;
-    color: #fff;
-    padding: 10px;
-    border: 1px solid #105169;
+.fw-bold {
+    color: white;
 }
 
-/* Formulario paciente y profesional */
-.titulo-1 {
-    margin-top: 20px;
+.text-muted {
+    --bs-text-opacity: 1;
+    color: rgb(21 102 135) !important;
 }
 
-#form_paciente, #form_personal {
-    display: none;
+/* Cambiar color del placeholder a blanco */
+::placeholder {
+    color: rgb(21 102 135) !important;
+    opacity: 1 !important;
+    /* Firefox reduce la opacidad por defecto */
 }
 
-#form_paciente .resultado-personal, #form_personal .resultado-personal {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Para navegadores WebKit (Chrome, Safari, etc.) */
+::-webkit-input-placeholder {
+    color: rgb(21 102 135) !important;
 }
 
-/* Card oscuro */
-.card-dark {
-    background-color: #0f151c;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 5px 0;
+/* Para Firefox 18- */
+:-moz-placeholder {
+    color: rgb(21 102 135)!important;
+    opacity: 1 !important;
 }
 
-/* Estilo de los enlaces */
-a {
-    color: #17a2b8; /* Enlace en azul claro */
-    text-decoration: none;
+/* Para Firefox 19+ */
+::-moz-placeholder {
+    color: rgb(21 102 135)!important;
+    opacity: 1 !important;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-/* Títulos y subtítulos */
-.titulo-seccion {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #f5f5f5;
+/* Para Microsoft Edge */
+:-ms-input-placeholder {
+    color: rgb(21 102 135)!important;
 }
