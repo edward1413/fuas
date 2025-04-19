@@ -28,10 +28,10 @@ body {
     flex-direction: column;
 }
 
-.container {
-    max-width: 800px;
+.container-fluid {
+    max-width: 50%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 20px;
     background-color: rgba(15, 21, 28, 0.7);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -170,7 +170,7 @@ h1 {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .container {
+    .container-fluid {
         padding: 1.5rem;
     }
 
@@ -221,3 +221,44 @@ progress::-moz-progress-bar {
     transform: translateY(0);
     animation: fadeInSlide 0.6s ease-out;
 }
+
+/* Estilos generales del footer */
+.site-footer {
+    background-color: #0f151c; /* Mismo color oscuro que las tarjetas */
+    color: #fff; /* Texto blanco */
+    padding: 20px 0; /* Espaciado interno */
+    text-align: center; /* Centrar el contenido */
+    font-family: Arial, sans-serif;
+    margin-top: 20px; /* Espacio superior para separarlo del contenido */
+  }
+  
+  .footer-content {
+    max-width: 70%; /* Ancho máximo igual al contenedor principal */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 0 20px; /* Espaciado lateral */
+  }
+  
+  .social-links a {
+    color: #28a745; /* Color verde como en el botón de imprimir */
+    margin: 0 10px; /* Espacio entre los enlaces */
+    text-decoration: none; /* Quitar subrayado */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+  }
+  
+  .site-footer p {
+    margin: 5px 0; /* Espaciado entre párrafos */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  }
+
+  .site-footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  .site-footer p strong {
+    color: #28a745; /* Color verde para resaltar los títulos */
+  }

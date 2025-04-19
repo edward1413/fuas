@@ -209,8 +209,7 @@
                 </p>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=100069548143051" target="_blank"><i
-                            class="bi bi-facebook"></i>
-                        Facebook</a>
+                            class="bi bi-facebook"></i> Facebook CSMC DOS DE JUNIO</a>
                 </div>
                 <p>&copy; 2025 Todos los derechos reservados.</p>
             </div>
