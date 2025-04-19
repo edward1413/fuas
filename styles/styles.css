@@ -3,9 +3,10 @@ body {
     color: #fff;
 }
 
-.container-fluid{
+.container-fluid {
     width: 70%;
 }
+
 .card-dark {
     background-color: #0f151c;
     border-radius: 10px;
@@ -102,17 +103,58 @@ body {
 
 /* Para Firefox 18- */
 :-moz-placeholder {
-    color: rgb(21 102 135)!important;
+    color: rgb(21 102 135) !important;
     opacity: 1 !important;
 }
 
 /* Para Firefox 19+ */
 ::-moz-placeholder {
-    color: rgb(21 102 135)!important;
+    color: rgb(21 102 135) !important;
     opacity: 1 !important;
 }
 
 /* Para Microsoft Edge */
 :-ms-input-placeholder {
-    color: rgb(21 102 135)!important;
+    color: rgb(21 102 135) !important;
 }
+
+/* Estilos generales del footer */
+.site-footer {
+    background-color: #0f151c; /* Mismo color oscuro que las tarjetas */
+    color: #fff; /* Texto blanco */
+    padding: 20px 0; /* Espaciado interno */
+    text-align: center; /* Centrar el contenido */
+    font-family: Arial, sans-serif;
+    margin-top: 20px; /* Espacio superior para separarlo del contenido */
+  }
+  
+  .footer-content {
+    max-width: 70%; /* Ancho máximo igual al contenedor principal */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 0 20px; /* Espaciado lateral */
+  }
+  
+  .social-links a {
+    color: #28a745; /* Color verde como en el botón de imprimir */
+    margin: 0 10px; /* Espacio entre los enlaces */
+    text-decoration: none; /* Quitar subrayado */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+  }
+  
+  .site-footer p {
+    margin: 5px 0; /* Espaciado entre párrafos */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  }
+
+  .site-footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  .site-footer p strong {
+    color: #28a745; /* Color verde para resaltar los títulos */
+  }

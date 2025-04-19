@@ -198,7 +198,24 @@
             </button>
         </div>
     </div>
-
+    <div class="container-fluid">
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p><strong>Edward Rivera Moreno</strong> - Ingeniero de Sistemas</p>
+                <p>Centro de Salud Mental Comunitario Dos de Junio</p>
+                <p>
+                    <i class="bi bi-telephone-fill" style="color: #28a745;"></i> <strong>Fijo:</strong> (043) 700697
+                    <!-- <i class="bi bi-phone-fill" style="color: #28a745;"></i> <strong> | Móvil:</strong> +51 987-654-321-->
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100069548143051" target="_blank"><i
+                            class="bi bi-facebook"></i>
+                        Facebook</a>
+                </div>
+                <p>&copy; 2025 Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
     <!-- Campos ocultos -->
     <input type="hidden" id="id_profesion">
     <input type="hidden" id="genero-paciente">
