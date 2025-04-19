@@ -1,3 +1,29 @@
+document.getElementById("btn-imprimir").addEventListener("click", function () {
+    const data = {
+        nombres: document.getElementById("nombres_paciente").value,
+        apellidoPaterno: document.getElementById("apellido_paterno_paciente").value,
+        apellidoMaterno: document.getElementById("apellido_materno_paciente").value,
+        fechaNacimiento: document.getElementById("fecha_nacimiento").value,
+        numeroDocumento: document.getElementById("documento_paciente").value,
+        genero: document.getElementById("genero-paciente").value,
+        prestacion: document.getElementById("codigo_prestacion").value,
+        codigoCIE10: document.getElementById("codigo_cie10").value,
+        descripcionCIE10: document.getElementById("descripcion_cie10").value,
+        profesionalNombre: document.getElementById("nombres_completos_personal").value,
+        profesion: document.getElementById("profesion_personal").value,
+        numeroColegiatura: document.getElementById("colegiatura_personal").value,
+        especialidad: document.getElementById("especialidad").value,
+        numeroEspecialidad: document.getElementById("numero_especialidad_personal").value,
+        dni: document.getElementById("dni_personal").value,
+        idProfesion: document.getElementById("id_profesion").value,
+        lugarAtencion: document.querySelector('input[name="lugar_atencion"]:checked')?.id || '',
+        tipoAtencion: document.querySelector('input[name="tipo_atencion"]:checked')?.id || '',
+    };
+
+    localStorage.setItem("datosFua", JSON.stringify(data));
+    window.open("print-fua.html", "_blank");
+});
+
 document.addEventListener('DOMContentLoaded', function () {
 
     console.log("scripts_imprimir.js cargado correctamente");

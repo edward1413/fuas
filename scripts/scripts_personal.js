@@ -5,7 +5,7 @@ $('#nombre_personal').on('input', function () {
     const nombre = $(this).val();
     if (nombre.length >= 2) {
         $.ajax({
-            url: 'buscar_personal.php',
+            url: 'buscar/buscar_personal.php',
             type: 'GET',
             data: { nombre_personal: nombre },
             success: function (data) {
@@ -36,7 +36,7 @@ $(document).on('click', '#resultados_personal .search-item', function () {
     $('#resultados_personal').addClass('d-none').empty();
     
     $.ajax({
-        url: 'obtener_datos_personal.php',
+        url: 'obtener/obtener_datos_personal.php',
         type: 'GET',
         dataType: 'json',
         data: { id: idPersonal },

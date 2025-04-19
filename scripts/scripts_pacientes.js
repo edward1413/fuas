@@ -11,7 +11,7 @@ $(document).ready(function () {
         if (nombre.length >= 2) {
             debounceTimer = setTimeout(() => {
                 $.ajax({
-                    url: 'buscar_paciente.php',
+                    url: 'buscar/buscar_paciente.php',
                     type: 'GET',
                     data: { nombre_paciente: nombre },
                     success: function (data) {
@@ -42,7 +42,7 @@ $(document).ready(function () {
         $('#resultados_paciente').addClass('d-none').empty();
 
         $.ajax({
-            url: 'obtener_datos_paciente.php',
+            url: 'obtener/obtener_datos_paciente.php',
             type: 'GET',
             dataType: 'json',
             data: { id: idPaciente },

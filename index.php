@@ -4,14 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imprimir FUAS</title>
+    <title>CENTRO DE SALUD MENTAL COMUNITARIO DOS DE JUNIO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/png" href="imagenes/Logo.png">
 </head>
 
 <body class="p-3">
     <div class="container-fluid">
+        <div class="titulo-con-icono d-flex align-items-center justify-content-center mb-4">
+            <img src="imagenes/Logo.png" alt="Ícono" class="me-3" style="width: 50px; height: auto;">
+            <h1 class="text-center mb-0">CENTRO DE SALUD MENTAL COMUNITARIO DOS DE JUNIO</h1>
+        </div>
+
         <h1 class="text-center mb-4">IMPRESIÓN DE FUAS</h1>
 
         <div class="row g-3">
@@ -152,8 +159,11 @@
             <div class="card card-dark">
                 <div class="card-body">
                     <div class="row g-2">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <h2 class="section-title">DIAGNÓSTICO</h2>
+                        </div>
+                        <div class="col-md-1 form-check form-switch">
+                            <input type="checkbox" class="form-check-input" id="switchcie10">
                         </div>
                         <div class="col-md-9">
                             <input type="text" id="cie10" class="form-control form-control-sm"
@@ -171,7 +181,13 @@
                                 placeholder="Diagnóstico" readonly>
                         </div>
                     </div>
+                    <small id="mensaje_deshabilitado" class="text-danger">
+                        <i class="fas fa-lock"></i> Los campos están deshabilitados.
+                    </small>
+                    <small class="text-muted" id="mensaje_habilitado" style="display: none;">
+                        <i class="fas fa-unlock text-info"></i> Los campos están habilitados.</small>
                 </div>
+
             </div>
         </div>
 
@@ -192,35 +208,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-        document.getElementById("btn-imprimir").addEventListener("click", function () {
-            const data = {
-                nombres: document.getElementById("nombres_paciente").value,
-                apellidoPaterno: document.getElementById("apellido_paterno_paciente").value,
-                apellidoMaterno: document.getElementById("apellido_materno_paciente").value,
-                fechaNacimiento: document.getElementById("fecha_nacimiento").value,
-                numeroDocumento: document.getElementById("documento_paciente").value,
-                genero: document.getElementById("genero-paciente").value,
-                prestacion: document.getElementById("codigo_prestacion").value,
-                codigoCIE10: document.getElementById("codigo_cie10").value,
-                descripcionCIE10: document.getElementById("descripcion_cie10").value,
-                profesionalNombre: document.getElementById("nombres_completos_personal").value,
-                profesion: document.getElementById("profesion_personal").value,
-                numeroColegiatura: document.getElementById("colegiatura_personal").value,
-                especialidad: document.getElementById("especialidad").value,
-                numeroEspecialidad: document.getElementById("numero_especialidad_personal").value,
-                dni: document.getElementById("dni_personal").value,
-                idProfesion: document.getElementById("id_profesion").value,
-                lugarAtencion: document.querySelector('input[name="lugar_atencion"]:checked')?.id || '',
-                tipoAtencion: document.querySelector('input[name="tipo_atencion"]:checked')?.id || '',
-            };
-
-            localStorage.setItem("datosFua", JSON.stringify(data));
-            window.open("print-fua.html", "_blank");
-        });
-    </script>
-
     <!-- Tus scripts personalizados -->
     <script src="scripts/scripts.js"></script>
     <script src="scripts/scripts_pacientes.js"></script>

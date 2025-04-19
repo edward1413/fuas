@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php'; // Conexión a la base de datos
+include '../conexion.php'; // Conexión a la base de datos
 
 $nombre_paciente = isset($_GET['nombre_paciente']) ? trim($_GET['nombre_paciente']) : '';
 

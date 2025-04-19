@@ -1,3 +1,7 @@
+body {
+    background-color: #15253a;
+}
+
 /* Ocultar el contenedor en modo pantalla normal */
 #print-marks {
     display: none;
@@ -51,7 +55,7 @@
 
     .x-mark {
         position: absolute;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: bold;
     }
 
@@ -76,5 +80,33 @@
         page-break-before: avoid;
         page-break-after: avoid;
     }
-}
 
+    .fecha-separada {
+        letter-spacing: 10px;
+    }
+
+    .fecha-separada-anio-nac {
+        letter-spacing: 20px;
+    }
+
+    .fecha-separada-ate {
+        letter-spacing: 15px;
+    }
+
+    .hora-separada {
+        letter-spacing: 5px;
+    }
+
+    .descripcion-cie10 {
+        position: absolute;
+        top: 22cm;
+        left: 1.5cm;
+        width: 8.9cm;
+        word-wrap: break-word;
+        white-space: normal;
+        font-size: 11px !important;
+        font-weight: normal !important;
+        word-spacing: 1mm;
+        letter-spacing: 0.2mm;
+    }
+}

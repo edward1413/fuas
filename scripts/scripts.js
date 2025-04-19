@@ -13,7 +13,7 @@ document.getElementById('codigo_prestacion').addEventListener('keypress', functi
         const codigo = this.value; // Obtener el código ingresado
         const descripcionInput = document.getElementById('descripcion_prestacion'); // Obtener el campo de descripción
 
-        fetch('buscar_prestacion.php?codigo=' + encodeURIComponent(codigo))
+        fetch('buscar/buscar_prestacion.php?codigo=' + encodeURIComponent(codigo))
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -40,7 +40,7 @@ document.getElementById('codigo_cie10').addEventListener('keypress', function (e
         const codigo_cie10 = this.value; // Obtener el código ingresado
         const descripcion_cie10Input = document.getElementById('descripcion_cie10'); // Obtener el campo de descripción
 
-        fetch('buscar_cie10.php?codigo_cie10=' + encodeURIComponent(codigo_cie10))
+        fetch('buscar/buscar_cie10.php?codigo_cie10=' + encodeURIComponent(codigo_cie10))
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -55,3 +55,38 @@ document.getElementById('codigo_cie10').addEventListener('keypress', function (e
             });
     }
 });
+
+// Escuchar cambios en el switch
+document.getElementById('switchcie10').addEventListener('change', function () {
+    const codigoCie10 = document.getElementById('codigo_cie10');
+    const descripcionCie10 = document.getElementById('descripcion_cie10');
+    const CIE10 = document.getElementById('cie10');
+    const mensajeDeshabilitado = document.getElementById('mensaje_deshabilitado');
+    const mensajeHabilitado = document.getElementById('mensaje_habilitado');
+
+
+    if (this.checked) {
+        codigoCie10.disabled = false;
+        descripcionCie10.disabled = false;
+        CIE10.disabled = false;
+        mensajeDeshabilitado.style.display = 'none';
+        mensajeHabilitado.style.display = 'inline';
+    } else {
+        codigoCie10.value = '';
+        descripcionCie10.value = '';
+        CIE10.value = '';
+
+        codigoCie10.disabled = true;
+        descripcionCie10.disabled = true;
+        CIE10.disabled = true;
+
+        mensajeDeshabilitado.style.display = 'inline';
+        mensajeHabilitado.style.display = 'none';
+    }
+
+});
+
+// Deshabilitar los campos al cargar la página
+document.getElementById('codigo_cie10').disabled = true;
+document.getElementById('descripcion_cie10').disabled = true;
+document.getElementById('cie10').disabled = true;

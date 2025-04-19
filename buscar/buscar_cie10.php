@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php'; // Asegúrate de que este archivo esté en el mismo directorio
+include '../conexion.php'; // Asegúrate de que este archivo esté en el mismo directorio
 
 if (isset($_GET['codigo_cie10'])) {
     $codigo_cie10 = $_GET['codigo_cie10'];

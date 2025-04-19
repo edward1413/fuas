@@ -1,6 +1,6 @@
 <?php
 
-include 'conexion.php'; // Asegúrate de que este archivo contenga la conexión a la base de datos
+include '../conexion.php'; // Asegúrate de que este archivo contenga la conexión a la base de datos
 
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 

@@ -5,7 +5,7 @@ $('#cie10').on('input', function () {
     const nombre = $(this).val();
     if (nombre.length >= 2) {
         $.ajax({
-            url: 'buscar_diagnostico.php',
+            url: 'buscar/buscar_diagnostico.php',
             type: 'GET',
             data: { codigo_cie10: nombre },
             success: function (data) {
@@ -35,7 +35,7 @@ $(document).on('click', '#resultado_cie10 .search-item', function () {
     $('#resultado_cie10').addClass('d-none').empty();
 
     $.ajax({
-        url: 'obtener_datos_diagnostico.php',
+        url: 'obtener/obtener_datos_diagnostico.php',
         type: 'GET',
         dataType: 'json',
         data: { id: idDiagnostico },
