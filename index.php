@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imprimir FUAS</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -15,15 +13,15 @@
 <body class="p-3">
     <div class="container-fluid">
         <h1 class="text-center mb-4">IMPRESIÓN DE FUAS</h1>
-        
+
         <div class="row g-3">
             <!-- Columna izquierda - Paciente -->
             <div class="col-lg-6">
                 <div class="card card-dark mb-3">
                     <div class="card-body">
                         <h2 class="section-title">BUSCAR PACIENTE</h2>
-                        <input type="text" id="nombre_paciente" class="form-control form-control-sm" 
-                               placeholder="Ingrese el DNI o nombres" autocomplete="off">
+                        <input type="text" id="nombre_paciente" class="form-control form-control-sm"
+                            placeholder="Ingrese los datos del usuario" autocomplete="off">
                         <div id="resultados_paciente" class="search-results d-none"></div>
                     </div>
                 </div>
@@ -38,17 +36,20 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Apellido paterno</label>
-                                <input type="text" id="apellido_paterno_paciente" class="form-control form-control-sm" readonly>
+                                <input type="text" id="apellido_paterno_paciente" class="form-control form-control-sm"
+                                    readonly>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Apellido materno</label>
-                                <input type="text" id="apellido_materno_paciente" class="form-control form-control-sm" readonly>
+                                <input type="text" id="apellido_materno_paciente" class="form-control form-control-sm"
+                                    readonly>
                             </div>
                         </div>
                         <div class="row g-2 mt-1">
                             <div class="col-md-4">
                                 <label class="form-label">Doc. Identidad</label>
-                                <input type="text" id="documento_paciente" class="form-control form-control-sm" readonly>
+                                <input type="text" id="documento_paciente" class="form-control form-control-sm"
+                                    readonly>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">F. Nacimiento</label>
@@ -68,8 +69,8 @@
                 <div class="card card-dark mb-3">
                     <div class="card-body">
                         <h2 class="section-title">BUSCAR PROFESIONAL</h2>
-                        <input type="text" id="nombre_personal" class="form-control form-control-sm" 
-                               placeholder="Ingrese los datos" autocomplete="off">
+                        <input type="text" id="nombre_personal" class="form-control form-control-sm"
+                            placeholder="Ingrese los datos del personal" autocomplete="off">
                         <div id="resultados_personal" class="search-results d-none"></div>
                     </div>
                 </div>
@@ -84,21 +85,25 @@
                             </div>
                             <div class="col-md-9">
                                 <label class="form-label">Nombres</label>
-                                <input type="text" id="nombres_completos_personal" class="form-control form-control-sm" readonly>
+                                <input type="text" id="nombres_completos_personal" class="form-control form-control-sm"
+                                    readonly>
                             </div>
                         </div>
                         <div class="row g-2 mt-1">
                             <div class="col-md-4">
                                 <label class="form-label">Profesión</label>
-                                <input type="text" id="profesion_personal" class="form-control form-control-sm" readonly>
+                                <input type="text" id="profesion_personal" class="form-control form-control-sm"
+                                    readonly>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Colegiatura</label>
-                                <input type="text" id="colegiatura_personal" class="form-control form-control-sm" readonly>
+                                <input type="text" id="colegiatura_personal" class="form-control form-control-sm"
+                                    readonly>
                             </div>
                             <div class="col-md-4">
                                 <label class="form-label">Especialidad</label>
-                                <input type="text" id="numero_especialidad_personal" class="form-control form-control-sm" readonly>
+                                <input type="text" id="numero_especialidad_personal"
+                                    class="form-control form-control-sm" readonly>
                             </div>
                         </div>
                     </div>
@@ -109,32 +114,61 @@
         <!-- Fila inferior - Opciones -->
         <div class="row g-3">
             <div class="col-md-6">
+                <div class="card card-dark mb-3">
+                    <div class="card-body">
+                        <h2 class="section-title">PRESTACIÓN</h2>
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <input type="text" id="codigo_prestacion" class="form-control form-control-sm"
+                                    placeholder="Código prestacional">
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="descripcion_prestacion" class="form-control form-control-sm"
+                                    placeholder="Prestación" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
                 <div class="card card-dark">
                     <div class="card-body">
                         <h2 class="section-title">LUGAR DE ATENCIÓN</h2>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="lugar_atencion" id="intramural" value="intramural">
+                            <input class="form-check-input" type="radio" name="lugar_atencion" id="intramural"
+                                value="intramural">
                             <label class="form-check-label" for="intramural">INTRAMURAL</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="lugar_atencion" id="extramural" value="extramural">
+                            <input class="form-check-input" type="radio" name="lugar_atencion" id="extramural"
+                                value="extramural">
                             <label class="form-check-label" for="extramural">EXTRAMURAL</label>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="card card-dark">
-                    <div class="card-body">
-                        <h2 class="section-title">PRESTACIÓN</h2>
-                        <div class="row g-2">
-                            <div class="col-md-3">
-                                <input type="text" id="codigo_prestacion" class="form-control form-control-sm" placeholder="Código prestacional">
-                            </div>
-                            <div class="col-md-9">
-                                <input type="text" id="descripcion_prestacion" class="form-control form-control-sm" readonly>
-                            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card card-dark">
+                <div class="card-body">
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <h2 class="section-title">DIAGNÓSTICO</h2>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" id="cie10" class="form-control form-control-sm"
+                                placeholder="Buscar el diagnóstico aquí" autocomplete="off">
+                            <div id="resultado_cie10" class="search-results d-none"></div>
+                        </div>
+                    </div>
+                    <div id="form_diagnostico" class="row g-2">
+                        <div class="col-md-3">
+                            <input type="text" id="codigo_cie10" class="form-control form-control-sm"
+                                placeholder="Código CIE-10">
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" id="descripcion_cie10" class="form-control form-control-sm"
+                                placeholder="Diagnóstico" readonly>
                         </div>
                     </div>
                 </div>
@@ -154,11 +188,11 @@
     <input type="hidden" id="genero-paciente">
     <input type="hidden" id="especialidad">
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <!-- Bootstrap 5 JS  para el Bundle con el Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <script>
         document.getElementById("btn-imprimir").addEventListener("click", function () {
             const data = {
@@ -169,13 +203,15 @@
                 numeroDocumento: document.getElementById("documento_paciente").value,
                 genero: document.getElementById("genero-paciente").value,
                 prestacion: document.getElementById("codigo_prestacion").value,
+                codigoCIE10: document.getElementById("codigo_cie10").value,
+                descripcionCIE10: document.getElementById("descripcion_cie10").value,
                 profesionalNombre: document.getElementById("nombres_completos_personal").value,
                 profesion: document.getElementById("profesion_personal").value,
                 numeroColegiatura: document.getElementById("colegiatura_personal").value,
                 especialidad: document.getElementById("especialidad").value,
-                numemroEspecialidad: document.getElementById("numero_especialidad_personal").value,
+                numeroEspecialidad: document.getElementById("numero_especialidad_personal").value,
                 dni: document.getElementById("dni_personal").value,
-                id_profesion: document.getElementById("id_profesion").value,
+                idProfesion: document.getElementById("id_profesion").value,
                 lugarAtencion: document.querySelector('input[name="lugar_atencion"]:checked')?.id || '',
                 tipoAtencion: document.querySelector('input[name="tipo_atencion"]:checked')?.id || '',
             };
@@ -189,6 +225,8 @@
     <script src="scripts/scripts.js"></script>
     <script src="scripts/scripts_pacientes.js"></script>
     <script src="scripts/scripts_personal.js"></script>
+    <script src="scripts/scripts_diagnostico.js"></script>
     <script src="scripts/scripts_imprimir.js"></script>
 </body>
+
 </html>

@@ -58,6 +58,16 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("prestacion-fua").textContent = prestacion;
             document.getElementById("prestacion-fua").style.display = "block";
 
+            // Obtener y mostrar CODIGO CIE10
+            const codigoCIE10 = document.getElementById("codigo_cie10").value.trim();
+            document.getElementById("codigo-cie10").textContent = codigoCIE10;
+            document.getElementById("codigo-cie10").style.display = "block";
+
+            // Obtener y mostrar DESCRIPCION CIE10
+            const descripcionCIE10 = document.getElementById("descripcion_cie10").value.trim();
+            document.getElementById("descripcion-cie10").textContent = descripcionCIE10;
+            document.getElementById("descripcion-cie10").style.display = "block";
+
             // Separar primer nombre y otros nombres
             let primerNombre = "", otrosNombres = "";
             if (nombresPaciente.includes(" ")) {

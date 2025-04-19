@@ -15,10 +15,12 @@
 
 /* Mostrar solo al imprimir */
 @media print {
+
     /* Configuración para la página A4 */
     @page {
         size: A4;
-        margin: 0; /* Eliminar márgenes para asegurarnos de que todo el contenido esté dentro de la página */
+        margin: 0;
+        /* Eliminar márgenes para asegurarnos de que todo el contenido esté dentro de la página */
     }
 
     body * {
@@ -61,9 +63,12 @@
 
     /* Forzar que todo el contenido esté dentro de los límites de la página */
     #print-marks {
-        width: 21cm;  /* Ancho de la página */
-        height: 29.7cm; /* Alto de la página */
-        overflow: hidden; /* Evita que el contenido se desborde */
+        width: 21cm;
+        /* Ancho de la página */
+        height: 29.7cm;
+        /* Alto de la página */
+        overflow: hidden;
+        /* Evita que el contenido se desborde */
     }
 
     /* Evitar cualquier tipo de salto de página innecesario */
@@ -72,3 +77,4 @@
         page-break-after: avoid;
     }
 }
+

@@ -46,6 +46,19 @@
             .hora-separada {
                 letter-spacing: 5px;
             }
+
+            .descripcion-cie10 {
+                position: absolute;
+                top: 22cm;
+                left: 1.5cm;
+                width: 8.9cm;
+                word-wrap: break-word;
+                white-space: normal;
+                font-size: 11px !important;
+                font-weight: normal !important;
+                word-spacing: 1mm;                
+                letter-spacing: 0.2mm;
+            }
         }
     </style>
 </head>
@@ -79,11 +92,16 @@
         <!-- Prestacion -->
         <div id="prestacion-fua" class="x-mark" style="top: 12.2cm; left: 9cm;"></div>
 
+        <!-- DIAGNOSTICO -->
+        <div id="codigo-cie10" class="x-mark" style="top: 22cm; left: 13.1cm;"></div>
+        <div id="descripcion-cie10" class="x-mark descripcion-cie10" style="top: 22cm; left: 1.6cm;"></div>
+
+
         <!-- Datos del profesional -->
         <div id="nombre-profesional" class="x-mark" style="top: 24.7cm; left: 5.5cm;"></div>
         <div id="colegiatura-profesional" class="x-mark" style="top: 24.7cm; left: 16.8cm;"></div>
         <div id="profesion-profesional" class="x-mark" style="top: 25.1cm; left: 8cm;"></div>
-        <div id="id_profesion" class="x-mark" style="top: 25.1cm; left: 4.9cm;"></div>
+        <div id="id-profesion" class="x-mark" style="top: 25.1cm; left: 4.9cm;"></div>
         <div id="dni-profesional" class="x-mark" style="top: 24.7cm; left: 2cm;"></div>
         <div id="rne-profesional" class="x-mark" style="top: 25.1cm; left: 14cm;"></div>
         <div id="especialidad" class="x-mark" style="top: 25.5cm; left: 7.5cm;"></div>
@@ -141,15 +159,20 @@
                 document.getElementById("genero-paciente-marca").style.display = "none";
             }
 
+            // PRESTACION
             document.getElementById("prestacion-fua").textContent = data.prestacion;
+
+            // DIAGNOSTICO
+            document.getElementById("codigo-cie10").textContent = data.codigoCIE10;
+            document.getElementById("descripcion-cie10").textContent = data.descripcionCIE10;
 
             document.getElementById("nombre-profesional").textContent = data.profesionalNombre;
             document.getElementById("profesion-profesional").textContent = data.profesion;
             document.getElementById("colegiatura-profesional").textContent = data.numeroColegiatura;
             document.getElementById("especialidad").textContent = data.especialidad;
-            document.getElementById("rne-profesional").textContent = data.numemroEspecialidad;
+            document.getElementById("rne-profesional").textContent = data.numeroEspecialidad;
             document.getElementById("dni-profesional").textContent = data.dni;
-            document.getElementById("id_profesion").textContent = data.id_profesion; // Asegúrate de mostrar el id_profesion
+            document.getElementById("id-profesion").textContent = data.idProfesion; // Asegúrate de mostrar el id_profesion
 
             const lugarAtencion = data.lugarAtencion;
             if (lugarAtencion === "intramural") {
