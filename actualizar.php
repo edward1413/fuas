@@ -40,20 +40,20 @@
     </div>
 
     <!-- Pie de página -->
-        <footer class="site-footer">
-            <div class="footer-content">
-                <p><strong>Edward Rivera Moreno</strong> - Ingeniero de Sistemas</p>
-                <p>Centro de Salud Mental Comunitario Dos de Junio</p>
-                <p>
-                    <i class="bi bi-telephone-fill" style="color: #28a745;"></i> <strong>Fijo:</strong> (043) 700697
-                </p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=100069548143051" target="_blank"><i
-                            class="bi bi-facebook"></i> Facebook CSMC DOS DE JUNIO</a>
-                </div>
-                <p>&copy; 2025 Todos los derechos reservados.</p>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p><strong>Edward Rivera Moreno</strong> - Ingeniero de Sistemas</p>
+            <p>Centro de Salud Mental Comunitario Dos de Junio</p>
+            <p>
+                <i class="bi bi-telephone-fill" style="color: #28a745;"></i> <strong>Fijo:</strong> (043) 700697
+            </p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100069548143051" target="_blank"><i
+                        class="bi bi-facebook"></i> Facebook CSMC DOS DE JUNIO</a>
             </div>
-        </footer>
+            <p>&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script src="scripts/script_actualizar.js"></script>
 </body>

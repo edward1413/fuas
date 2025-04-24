@@ -13,8 +13,8 @@ if (!empty($nombre_paciente)) {
         $conditions[] = "(numero_documento_paciente LIKE ? OR nombres_paciente LIKE ? OR apellido_paterno_paciente LIKE ? OR apellido_materno_paciente LIKE ?)";
     }
 
-    $query = "SELECT numero_documento_paciente, nombres_paciente, apellido_paterno_paciente, apellido_materno_paciente, fecha_nacimiento_paciente, genero_paciente 
-            FROM maestro_paciente 
+    $query = "SELECT numero_documento_paciente, nombres_paciente, apellido_paterno_paciente, apellido_materno_paciente, fecha_nacimiento_paciente, genero_paciente
+            FROM maestro_paciente
             WHERE " . implode(' AND ', $conditions) . " LIMIT 10";
 
     // Preparar y vincular parámetros
@@ -33,11 +33,14 @@ if (!empty($nombre_paciente)) {
 
         if ($resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
+                // Asegurarse de que numero_documento_paciente tenga al menos 8 caracteres
+                $numeroDocumento = str_pad($fila['numero_documento_paciente'], 8, '0', STR_PAD_LEFT);
+
                 echo '<div class="search-item" data-id="' . htmlspecialchars($fila['numero_documento_paciente']) . '">' .
-                    '<div class="fw-bold">' . htmlspecialchars($fila['nombres_paciente'] . ' ' . 
-                    htmlspecialchars($fila['apellido_paterno_paciente']) . ' ' . 
+                    '<div class="fw-bold">' . htmlspecialchars($fila['nombres_paciente'] . ' ' .
+                    htmlspecialchars($fila['apellido_paterno_paciente']) . ' ' .
                     htmlspecialchars($fila['apellido_materno_paciente'])) . '</div>' .
-                    '<div class="small">DNI: ' . htmlspecialchars($fila['numero_documento_paciente']) . '</div>' .
+                    '<div class="small">DNI: ' . htmlspecialchars($numeroDocumento) . '</div>' .
                     '</div>';
             }
         } else {

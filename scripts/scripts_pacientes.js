@@ -1,5 +1,6 @@
 $(document).ready(function () {
     let debounceTimer;
+    let currentFocus = -1;
 
     // ==============================
     // BUSCAR PACIENTE (Actualizado para Bootstrap 5)
@@ -18,6 +19,7 @@ $(document).ready(function () {
                         const resultados = $('#resultados_paciente');
                         resultados.html(data);
                         resultados.removeClass('d-none'); // Mostrar resultados (Bootstrap 5)
+                        currentFocus = -1; // Reiniciar el índice de enfoque
                     },
                     error: function (xhr, status, error) {
                         console.error('Error en la búsqueda:', error);
@@ -36,8 +38,37 @@ $(document).ready(function () {
     // ==============================
     // CLIC EN RESULTADO PACIENTE (Actualizado)
     // ==============================
-    $(document).on('click', '#resultados_paciente .search-item', function () { // Cambiado a .search-item
-        const idPaciente = $(this).data('id');
+    $(document).on('click', '#resultados_paciente .search-item', function () {
+        seleccionarPaciente($(this));
+    });
+
+    // ==============================
+    // Navegación con teclado
+    // ==============================
+    $('#nombre_paciente').on('keydown', function (e) {
+        const resultados = $('#resultados_paciente .search-item');
+        if (e.keyCode === 40) { // Flecha abajo
+            e.preventDefault();
+            currentFocus++;
+            if (currentFocus >= resultados.length) currentFocus = 0;
+            resultados.removeClass('active');
+            resultados.eq(currentFocus).addClass('active');
+        } else if (e.keyCode === 38) { // Flecha arriba
+            e.preventDefault();
+            currentFocus--;
+            if (currentFocus < 0) currentFocus = resultados.length - 1;
+            resultados.removeClass('active');
+            resultados.eq(currentFocus).addClass('active');
+        } else if (e.keyCode === 13) { // Enter
+            e.preventDefault();
+            if (currentFocus > -1) {
+                seleccionarPaciente(resultados.eq(currentFocus));
+            }
+        }
+    });
+
+    function seleccionarPaciente(item) {
+        const idPaciente = item.data('id');
         $('#nombre_paciente').val('');
         $('#resultados_paciente').addClass('d-none').empty();
 
@@ -47,7 +78,6 @@ $(document).ready(function () {
             dataType: 'json',
             data: { id: idPaciente },
             success: function (paciente) {
-
                 // Rellenar campos
                 $('#id_tipo_documento_paciente').val(paciente.id_tipo_documento_paciente);
                 $('#documento_paciente').val(paciente.numero_documento_paciente);
@@ -82,7 +112,7 @@ $(document).ready(function () {
                 alert('Error al cargar los datos del paciente');
             }
         });
-    });
+    }
 
     // Cerrar resultados al hacer clic fuera (Nueva funcionalidad)
     $(document).on('click', function (e) {

@@ -58,9 +58,9 @@ try {
             continue;
         }
 
-        $data = array_map(function($item) {
-			return trim(iconv('Windows-1252', 'UTF-8//IGNORE', $item));
-		}, $data);
+        $data = array_map(function ($item) {
+            return trim(iconv('Windows-1252', 'UTF-8//IGNORE', $item));
+        }, $data);
 
 
         $data = array_map([$conexion, 'real_escape_string'], $data);

@@ -13,7 +13,7 @@ if ($id && is_numeric($id)) { // Verificar que el ID sea un número
                 apellido_materno_paciente,
                 fecha_nacimiento_paciente,
                 genero_paciente
-            FROM maestro_paciente 
+            FROM maestro_paciente
             WHERE numero_documento_paciente = ?";
 
     if ($stmt = $conexion->prepare($query)) { // Verificar si la preparación fue exitosa
@@ -22,10 +22,12 @@ if ($id && is_numeric($id)) { // Verificar que el ID sea un número
         $resultado = $stmt->get_result();
 
         if ($fila = $resultado->fetch_assoc()) {
+            // Asegurarse de que numero_documento_paciente tenga al menos 8 caracteres
+            $numero_documento_paciente = str_pad($fila['numero_documento_paciente'], 8, '0', STR_PAD_LEFT);
 
             echo json_encode([
                 'id_tipo_documento_paciente' => $fila['id_tipo_documento_paciente'],
-                'numero_documento_paciente' => $fila['numero_documento_paciente'],
+                'numero_documento_paciente' => $numero_documento_paciente,
                 'nombres_paciente' => $fila['nombres_paciente'],
                 'apellido_paterno_paciente' => $fila['apellido_paterno_paciente'],
                 'apellido_materno_paciente' => $fila['apellido_materno_paciente'],

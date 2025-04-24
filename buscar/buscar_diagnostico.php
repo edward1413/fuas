@@ -51,4 +51,3 @@ if (!empty($codigo_cie10)) {
     echo '<div class="alert alert-info">Por favor, ingresa un nombre para buscar.</div>';
 }
 ?>
-

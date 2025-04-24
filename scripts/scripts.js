@@ -33,6 +33,11 @@ document.getElementById('codigo_cie10').addEventListener('input', function () {
     if (this.value.length > 4) {
         this.value = this.value.slice(0, 4); // Limita el valor a 4 caracteres
     }
+    this.value = this.value.toUpperCase(); // Convierte a mayúsculas mientras se escribe
+});
+
+document.getElementById('codigo_cie10').addEventListener('click', function () {
+    this.value = this.value.toUpperCase(); // Convierte a mayúsculas al hacer clic
 });
 
 document.getElementById('codigo_cie10').addEventListener('keypress', function (e) {
@@ -55,6 +60,7 @@ document.getElementById('codigo_cie10').addEventListener('keypress', function (e
             });
     }
 });
+
 
 // Escuchar cambios en el switch
 document.getElementById('switchcie10').addEventListener('change', function () {

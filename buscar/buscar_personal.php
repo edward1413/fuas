@@ -34,9 +34,9 @@ if (!empty($nombre_personal)) {
         if ($resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
                 echo '<div class="search-item" data-id="' . htmlspecialchars($fila['id_personal']) . '">' .
-                '<div class="fw-bold">'.htmlspecialchars($fila['nombres_personal']) . ' ' .
+                    '<div class="fw-bold">' . htmlspecialchars($fila['nombres_personal']) . ' ' .
                     htmlspecialchars($fila['apellido_paterno_personal']) . ' ' .
-                    htmlspecialchars($fila['apellido_materno_personal']) .'</div>'.
+                    htmlspecialchars($fila['apellido_materno_personal']) . '</div>' .
                     '<div class="small">DNI: ' . htmlspecialchars($fila['numero_documento_personal']) . '</div>' .
                     '</div>';
             }

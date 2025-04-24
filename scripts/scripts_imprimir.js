@@ -131,14 +131,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Establece posición según el género
             if (genero === "M") {
                 generoMarca.textContent = "X";
-                generoMarca.style.top = "9.2cm";
-                generoMarca.style.left = "2.9cm";
+                generoMarca.style.top = "9cm";
+                generoMarca.style.left = "2.5cm";
                 generoMarca.style.position = "absolute";
                 generoMarca.style.display = "block";
             } else if (genero === "F") {
                 generoMarca.textContent = "X";
-                generoMarca.style.top = "9.5cm";
-                generoMarca.style.left = "2.9cm";
+                generoMarca.style.top = "9.3cm";
+                generoMarca.style.left = "2.5cm";
                 generoMarca.style.position = "absolute";
                 generoMarca.style.display = "block";
             }
